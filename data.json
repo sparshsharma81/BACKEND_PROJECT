@@ -3,5 +3,15 @@
     "name": "hello world",
     "email": "hello@gmail.com",
     "message": "hello world"
+  },
+  {
+    "name": "sample2",
+    "email": "sample2@gmail.com",
+    "message": "hello world"
+  },
+  {
+    "name": "sparsh",
+    "email": "sparsh2218.be23@chitkara.edu.in",
+    "message": "hello world"
   }
 ]
