@@ -10,8 +10,28 @@
     "message": "hello world"
   },
   {
-    "name": "sparsh",
+    "name": "shubham",
+    "email": "shubam@gmail.com",
+    "message": "abcd"
+  },
+  {
+    "name": "samarth ",
     "email": "sparsh2218.be23@chitkara.edu.in",
-    "message": "hello world"
+    "message": "hello"
+  },
+  {
+    "name": "sanple33",
+    "email": "sparsh2218.be23@chitkara.edu.in",
+    "message": "hbd"
+  },
+  {
+    "name": "honeysingh",
+    "email": "badshah@gmail.com",
+    "message": "its ur boy badshah"
+  },
+  {
+    "name": "honeysingh",
+    "email": "sparsh2218.be23@chitkara.edu.in",
+    "message": "hsjcncn"
   }
 ]

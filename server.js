@@ -2,13 +2,14 @@ const http = require('http');//http module joki servers wagera me use hota hai..
 const fs = require('fs'); //file system module=-- joki file me reading and writing k operations ke liye hoga hai
 const qs = require('querystring'); //ye stirng ki operations ke liye hota hai
 
-const server = http.createServer((req, res) => {
-    res.setHeader('Content-Type', 'text/html');
+const server = http.createServer((req, res) => { //(req,res)--- ye callback function hota hai...
+    res.setHeader('Content-Type', 'text/html'); //basically it will the browser that we are sending the html type of data.....
 
     // front page hoga yeeh
 
     //maksad nahi bhulna
-    if (req.url == "/") {
+    if (req.url == "/") { //this is kind of get method.....
+        //bydefault yehi page run hoga...
         const formHTML = `
             <!DOCTYPE html>
             <html lang="en">
@@ -121,18 +122,21 @@ const server = http.createServer((req, res) => {
             </body>
             </html>
         `;
-        res.end(formHTML);
+        res.end(formHTML);//ye khatam hone ke baad formHTML ko send kar dega
     }
 
     // this will now handle the submission of faram
-    else if (req.url === '/submit' && req.method === 'POST') {
-        let body = '';
+    else if (req.url === '/submit' && req.method === 'POST') { //iska matlab localhost me jab user 8001
+        //dalne ke baad /submit likhega...aur client se server pe post hoga...
+        //server se data client -- post 
+        let body = ''; //body naam ka variable banaya hai
         req.on('data', chunk => {
             body += chunk; //yaha pr chunk ka use hua hai body variable me data dalne ke liye
-        });
+        }); //chunk ki madat se hamne data ko append kiya
         req.on('end', () => { //data dalne ke baad ye work karega...
             const formData = qs.parse(body); 
-            fs.readFile('data.json', 'utf8', (err, data) => {
+            fs.readFile('data.json', 'utf8', (err, data) => { //data.json ki file k andar utf8 type 
+                //me convert ho jayega...fir callback function se err aur data handle hoge....
                 let users = []; //user naam ka ek array assume karege..aur usme data daalege
                 if (!err && data) { //error na ho..aur data ho kuch file ke andar...too yee kaam krega...
                     users = JSON.parse(data);
@@ -245,8 +249,8 @@ const server = http.createServer((req, res) => {
                         <a class="back-link" href="/">Go Back</a>
                     </div>
                 </body>
-                </html>
-            `;
+                </html> 
+            `;//this will append the data at the end of the code
             res.statusCode = 200;
             res.end(htmlContent);
         });
@@ -259,6 +263,6 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(8001, () => { //russian
+server.listen(8001, () => { 
     console.log("Server is listening on port 8001");
 });
